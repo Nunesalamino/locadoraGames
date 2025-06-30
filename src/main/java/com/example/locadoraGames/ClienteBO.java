@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class ClienteBO {
     private  final ClienteRepository clienteRepository;
 
+
     public ClienteBO(ClienteRepository clienteRepository) {
         this.clienteRepository = clienteRepository;
     }
@@ -18,38 +19,35 @@ public class ClienteBO {
     }
 
     public Cliente lerCliente() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Digite o nome do cliente: ");
-        String nome = scanner.nextLine();
-
-        System.out.println("Digite o telefone: ");
-        String telefone = scanner.nextLine();
-
-        System.out.println("Digite o CPF: ");
-        String cpf = scanner.nextLine();
-
-        System.out.println("Digite o CEP: ");
-        String cep = scanner.nextLine();
-
-        System.out.println("Digite o número do imóvel: ");
-        String numero = scanner.nextLine();
+        String nome = solicitarEntrada("Digite o nome do cliente: ");
+        String telefone = solicitarEntrada("Digite o telefone: ");
+        String cpf = solicitarEntrada("Digite o CPF: ");
+        String cep = solicitarEntrada("Digite o CEP: ");
+        String numero = solicitarEntrada("Digite o número do imóvel: ");
 
         CepService cepService = new CepService();
-
         Endereco endereco = cepService.buscarEnderecoPorCep(cep);
 
+        return construirCliente(nome, telefone, cpf, cep, numero, endereco);
+    }
+
+    private String solicitarEntrada(String mensagem) {
+        System.out.print(mensagem);
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+
+    private Cliente construirCliente(String nome, String telefone, String cpf, String cep, String numero, Endereco endereco) {
         Cliente cliente = new Cliente();
         cliente.setNome(nome);
         cliente.setTelefone(telefone);
         cliente.setCpf(cpf);
-        cliente.setRua(endereco.getLogradouro());
+        cliente.setCep(cep);
         cliente.setNumero(numero);
+        cliente.setRua(endereco.getLogradouro());
         cliente.setBairro(endereco.getBairro());
         cliente.setCidade(endereco.getLocalidade());
         cliente.setEstado(endereco.getUf());
-        cliente.setCep(cep);
-
         return cliente;
     }
 }
