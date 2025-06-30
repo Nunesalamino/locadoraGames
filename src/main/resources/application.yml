@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: locadoraGames
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update   # cria e atualiza as tabelas automaticamente
+    show-sql: true        # mostra os comandos SQL no console
+    properties:
+      hibernate:
+        format_sql: true  # deixa o SQL mais legível no console
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
