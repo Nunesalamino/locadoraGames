@@ -1,13 +1,17 @@
-package com.example.locadoraGames;
+package com.example.locadoraGames.service;
 
+import com.example.locadoraGames.enums.Categoria;
+import com.example.locadoraGames.model.Jogo;
+import com.example.locadoraGames.repository.JogoRepository;
+import com.example.locadoraGames.enums.Console;
 import org.springframework.stereotype.Service;
 
 import java.util.Scanner;
 @Service
-public class JogoBO {
+public class JogoService {
     private final JogoRepository jogoRepository;
 
-    public JogoBO(JogoRepository jogoRepository) {
+    public JogoService(JogoRepository jogoRepository) {
         this.jogoRepository = jogoRepository;
     }
 

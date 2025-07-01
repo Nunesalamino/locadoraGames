@@ -1,5 +1,7 @@
-package com.example.locadoraGames;
+package com.example.locadoraGames.model;
 
+import com.example.locadoraGames.enums.Categoria;
+import com.example.locadoraGames.enums.Console;
 import lombok.Getter;
 import lombok.Setter;
 

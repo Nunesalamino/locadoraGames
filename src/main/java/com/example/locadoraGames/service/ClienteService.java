@@ -1,15 +1,18 @@
-package com.example.locadoraGames;
+package com.example.locadoraGames.service;
 
+import com.example.locadoraGames.model.Cliente;
+import com.example.locadoraGames.repository.ClienteRepository;
+import com.example.locadoraGames.model.Endereco;
 import org.springframework.stereotype.Service;
 
 import java.util.Scanner;
 
 @Service
-public class ClienteBO {
+public class ClienteService {
     private  final ClienteRepository clienteRepository;
 
 
-    public ClienteBO(ClienteRepository clienteRepository) {
+    public ClienteService(ClienteRepository clienteRepository) {
         this.clienteRepository = clienteRepository;
     }
 

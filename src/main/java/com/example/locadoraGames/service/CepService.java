@@ -1,5 +1,6 @@
-package com.example.locadoraGames;
+package com.example.locadoraGames.service;
 
+import com.example.locadoraGames.model.Endereco;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

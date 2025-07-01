@@ -1,6 +1,9 @@
 // Classe principal com menu de seleção entre cadastro de Jogo ou Cliente
-package com.example.locadoraGames;
+package com.example.locadoraGames.console;
 
+import com.example.locadoraGames.form.ClienteCadastroForm;
+import com.example.locadoraGames.form.JogoCadastroForm;
+import com.example.locadoraGames.config.SpringContextHolder;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
