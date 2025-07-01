@@ -1,4 +1,4 @@
-package com.example.locadoraGames;
+package com.example.locadoraGames.model;
 
 import lombok.Getter;
 import lombok.Setter;

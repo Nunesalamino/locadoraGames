@@ -1,22 +1,26 @@
 // Exemplo básico de tela com JavaFX para cadastrar jogo
 // Salve este arquivo como JogoCadastroApp.java em um diretório apropriado
 
-package com.example.locadoraGames;
+package com.example.locadoraGames.form;
 
+import com.example.locadoraGames.enums.Categoria;
+import com.example.locadoraGames.config.SpringContextHolder;
+import com.example.locadoraGames.enums.Console;
+import com.example.locadoraGames.model.Jogo;
+import com.example.locadoraGames.service.JogoService;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 
 public class JogoCadastroForm extends Application {
 
     private static ConfigurableApplicationContext springContext;
-    private JogoBO jogoBO;
+    private JogoService jogoService;
 
     public JogoCadastroForm(ConfigurableApplicationContext springContext) {
     }
@@ -24,7 +28,7 @@ public class JogoCadastroForm extends Application {
     @Override
     public void init() {
         ApplicationContext context = SpringContextHolder.getApplicationContext();
-        jogoBO = context.getBean(JogoBO.class);
+        jogoService = context.getBean(JogoService.class);
     }
 
     @Override
@@ -66,7 +70,7 @@ public class JogoCadastroForm extends Application {
                 jogo.setCategoria(categoriaBox.getValue());
                 jogo.setConsole(consoleBox.getValue());
 
-                jogoBO.salvarJogo(jogo);
+                jogoService.salvarJogo(jogo);
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "Jogo salvo com sucesso!");
                 alert.showAndWait();

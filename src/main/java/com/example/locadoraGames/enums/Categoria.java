@@ -1,4 +1,4 @@
-package com.example.locadoraGames;
+package com.example.locadoraGames.enums;
 
 public enum Categoria {
     ACAO,

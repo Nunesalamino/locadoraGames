@@ -1,19 +1,23 @@
-package com.example.locadoraGames;
+package com.example.locadoraGames.form;
 
+import com.example.locadoraGames.config.SpringContextHolder;
+import com.example.locadoraGames.model.Cliente;
+import com.example.locadoraGames.model.Endereco;
+import com.example.locadoraGames.service.CepService;
+import com.example.locadoraGames.service.ClienteService;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 
 public class ClienteCadastroForm extends Application {
 
     private static ApplicationContext springContext;
-    private ClienteBO clienteBO;
+    private ClienteService clienteService;
 
     public ClienteCadastroForm(ConfigurableApplicationContext springContext) {
     }
@@ -21,7 +25,7 @@ public class ClienteCadastroForm extends Application {
     @Override
     public void init() {
         springContext = SpringContextHolder.getApplicationContext();
-        clienteBO = springContext.getBean(ClienteBO.class);
+        clienteService = springContext.getBean(ClienteService.class);
     }
 
     @Override
@@ -111,7 +115,7 @@ public class ClienteCadastroForm extends Application {
                 cliente.setCidade(cidadeField.getText());
                 cliente.setEstado(estadoField.getText());
 
-                clienteBO.salvarCliente(cliente);
+                clienteService.salvarCliente(cliente);
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "Cliente salvo com sucesso!");
                 alert.showAndWait();

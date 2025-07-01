@@ -1,4 +1,4 @@
-package com.example.locadoraGames;
+package com.example.locadoraGames.config;
 
 import org.springframework.context.ApplicationContext;
 

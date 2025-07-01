@@ -1,7 +1,8 @@
 package com.example.locadoraGames;
 
+import com.example.locadoraGames.model.Cliente;
+import com.example.locadoraGames.service.ClienteService;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 
@@ -14,10 +15,10 @@ public class LocadoraGamesApplication {
 //		Jogo jogo = new Jogo();
 //		jogoBO.salvarJogo(jogo);
 
-		ClienteBO clienteBO = context.getBean(ClienteBO.class);
+		ClienteService clienteService = context.getBean(ClienteService.class);
 		Cliente cliente;
 		cliente = new Cliente();
-		cliente = clienteBO.lerCliente();
-		clienteBO.salvarCliente(cliente);
+		cliente = clienteService.lerCliente();
+		clienteService.salvarCliente(cliente);
 	}
 }
